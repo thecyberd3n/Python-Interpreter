@@ -1,0 +1,63 @@
+<html>
+
+<head>
+<script src="/src/brython.js"></script>
+<script src="/src/brython_stdlib.js"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<script defer type="text/javascript">
+
+    function inputval(){
+        console.log("hey")
+        const textconsole = document.getElementById('console')
+        const text = textconsole.value;
+        console.log(text)
+        let run = true
+        while (run) {
+            if (!(textconsole.value.includes(text))){
+                textconsole.value = text;
+            }
+            document.addEventListener('keyup', (event) => {
+                if (event.key == 'Enter') {
+                    run = false
+                }
+            });
+        }
+    }
+</script>
+        
+<script defer type="text/python">
+    from browser import run_script
+
+    pythonscript = '''input("Whats your name? : ")'''
+
+    runscript = '''
+    from browser import *
+    console = document['console']
+
+    def custom_print(prompt):
+        console <= prompt
+    print = custom_print
+
+    def custom_input(prompt):
+        print(prompt)
+        return window.inputval()
+    input = custom_input
+    '''+pythonscript
+    
+    # Run the script
+    run_script(runscript)
+</script>
+
+<textarea readonly id="console"  rows="15" cols="50" minlength="5">
+Python Console:
+</textarea>
+
+
+
+
+</body>
+
+</html>
