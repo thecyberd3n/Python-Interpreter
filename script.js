@@ -1,15 +1,25 @@
-window.inputrunning = false;
-window.inputval= ""
-function getinput(){
-    window.inputrunning = true
+let code = 'jprint(input("what is the input:"))'
+
+
+
+fetch('script.py')
+    .then(response => response.text())
+    .then(src => {
+        // Run the Python code using Brython
+        __BRYTHON__.runPythonSource(src + code);
+    })
+    .catch(error => {
+        console.error('Error loading the Python script:', error);
+    });
+
+
+function myInput(value){
     console.log("hey")
     const textconsole = document.getElementById('console')
+    textconsole.value += value
     const text = textconsole.value;
-    console.log(text)
     const newsline = "\n"
     textconsole.removeAttribute('readonly');
-    console.log(textconsole.hasAttribute("readonly"))
-    
     const interval = setInterval(() => {
         if (!(textconsole.value.includes(text))) {
             textconsole.value = text;
@@ -24,12 +34,6 @@ function getinput(){
 }
 
 
-
-function waitUntilCondition(callback) {
-    const interval2 = setInterval(() => {
-        // Simulate a condition check that eventually becomes true
-        if (callback){
-            clearInterval(interval2)
-        }
-    }, 100);  // Wait for 5 seconds
+function jprint(value){
+    console.log(value)
 }
