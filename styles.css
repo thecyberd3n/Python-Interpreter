@@ -1,3 +1,37 @@
-textarea {
+body{
+    background-color: hsl(0, 0%, 7%);
+}
+
+
+#console {
+    font-size: 15px;
+    margin-top: 25px;
+    margin-right: 25px;
+    margin-left: 0px;
+    float: right;
     resize: none;
- }
+    border-color: hsl(267, 30%, 41%);
+    border-radius: 10px;
+    border-width: 5px;
+    background-color: hsl(0, 0%, 23%);
+    color: hsl(0, 0%, 100%);
+    width: 40%;
+    height: 70%;
+    outline: none;
+}
+#codeinput {
+    font-size: 15px;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 0px;
+    float: left;
+    resize: none;
+    border-color: hsl(267, 30%, 41%);
+    border-radius: 10px;
+    border-width: 5px;
+    background-color: hsl(0, 0%, 23%);
+    color: hsl(0, 0%, 100%);
+    width: 50%;
+    height: 70%;
+    outline: none;
+}

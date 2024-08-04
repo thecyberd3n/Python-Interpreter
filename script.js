@@ -1,9 +1,6 @@
-let standardcode
 
-
-standardcode = 'from browser import window\nwindow.__BRYTHON__.debug = 0\nprint = window.myPrint\njprint = window.jprint\n'
-
-
+let standardcode = 'from browser import window\nwindow.__BRYTHON__.debug = 0\nprint = window.myPrint\njprint = window.jprint\n'
+codeinput.value = 'print("This is my calculator; Enter 2 numbers to multiply them")\nnum1 = int(input("What is num1? :"))\nnum2 = int(input("What is num2? :"))\nanswer = str(num1 * num2)\nprint("Your number is : " + answer)'
 let code = 'print("This is my calculator; Enter 2 numbers to multiply them")\nnum1 = int(input("What is num1? :"))\nnum2 = int(input("What is num2? :"))\nanswer = str(num1 * num2)\nprint("Your number is : " + answer)'
 
 const textconsole = document.getElementById('console')
