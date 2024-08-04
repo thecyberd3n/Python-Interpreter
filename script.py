@@ -1,26 +1,6 @@
-'''from browser import *
-import sys
 
+from browser import window
+#window.__BRYTHON__.debug = 2
 
-class MyOutput:
-    def __init__(self):
-        self.console = document["console"]
-
-    def write(self, text):
-        document["console"].text += text
-
-sys.stdout = MyOutput()
-'''
-from browser import *
-
-
-def myPrint(value):
-    document["console"] <= value
-print = myPrint
-def myInput(value):
-    
-    window.myInput()
-
-input = myInput
+print = window.myPrint
 jprint = window.jprint
-

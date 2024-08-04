@@ -3,6 +3,7 @@
 // implementation [3, 12, 4, 'dev', 0]
 // version compiled from commented, indented source files at
 // github.com/brython-dev/brython
+
 var __BRYTHON__=globalThis.__BRYTHON__ ||{}
 try{
 eval("async function* f(){}")}catch(err){console.warn("Your browser is not fully supported. If you are using "+
@@ -948,7 +949,13 @@ src=unindent(src)
 src=src.replace(/^\n/,'')
 if(src.endsWith('\n')){src=src.substr(0,src.length-1)}
 $B.tasks.push([$B.run_script,script,src,module_name,$B.script_path,true])}}
-$B.loop()}
+$B.loop()
+
+
+
+}
+
+
 $B.run_script=function(script,src,name,url,run_loop){
 var filename=$B.script_filename=$B.strip_host(url+'#'+name)
 var script_elts=url.split('/')
@@ -962,11 +969,25 @@ _b_.__debug__=$B.get_option('debug')> 0
 var root,js
 try{root=$B.py2js({src:src,filename},name,name)
 js=root.to_js()
-if($B.get_option_from_filename('debug',filename)> 1){console.log($B.format_indent(js,0))}}catch(err){console.log('err',err)
+
+if($B.get_option_from_filename('debug',filename)> 1){
+    console.log($B.format_indent(js,0))}
+}
+
+catch(err){console.log('err',err)
 return $B.handle_error($B.exception(err))}
+
 var _script={__doc__:get_docstring(root._ast),js:js,__name__:name,__file__:url,script_element:script}
+
 $B.tasks.push(["execute",_script])
-if(run_loop){$B.loop()}}
+
+$B.loop()
+
+}
+
+
+
+
 $B.brython=brython})(__BRYTHON__)
 globalThis.brython=__BRYTHON__.brython
 if(__BRYTHON__.isNode){global.__BRYTHON__=__BRYTHON__
@@ -3106,11 +3127,21 @@ if(obj.$id !==undefined){return obj.$id}else if($B.$isinstance(obj,[_b_.str,_b_.
 _b_.__import__=function(){
 var $=$B.args('__import__',5,{name:null,globals:null,locals:null,fromlist:null,level:null},['name','globals','locals','fromlist','level'],arguments,{globals:None,locals:None,fromlist:_b_.tuple.$factory(),level:0},null,null)
 return $B.$__import__($.name,$.globals,$.locals,$.fromlist)}
-_b_.input=function(msg){var res=prompt(msg ||'')||''
-if($B.imported["sys"]&& $B.imported["sys"].ps1){
-var ps1=$B.imported["sys"].ps1,ps2=$B.imported["sys"].ps2
-if(msg==ps1 ||msg==ps2){console.log(msg,res)}}
-return res}
+_b_.input=function(msg) {
+    console.log(inputval)
+    if( (inputval !== "") && inputval !== "waiting⽏"){
+        console.log("got val")
+        return inputval;
+    }
+    else{
+        window.inputval = ""
+        textconsole.value += msg
+        textconsole.removeAttribute('readonly');
+        inputval = "waiting⽏"
+        console.log("hey barbie")
+    }
+
+}
 _b_.isinstance=function(obj,cls){check_nb_args_no_kw('isinstance',2,arguments)
 return $B.$isinstance(obj,cls)}
 $B.$isinstance=function(obj,cls){if(obj===null){return cls===$B.imported.javascript.NullType}
@@ -11021,9 +11052,12 @@ var $io=$B.$io=$B.make_class("io",function(out){return{
 __class__:$io,__dict__:$B.empty_dict(),out,encoding:'utf-8'}}
 )
 $io.flush=function(self){if(self.buf){
+
 var s=self.buf.join(''),chr0=String.fromCodePoint(0)
 s=s.replace(new RegExp(chr0,'g'),' ')
-console[self.out](s)
+
+if (!inputval == "waiting⽏"){console[self.out](s)}
+
 self.buf=[]}}
 $io.write=function(self,msg){
 if(self.buf===undefined){self.buf=[]}
