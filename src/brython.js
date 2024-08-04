@@ -3128,20 +3128,34 @@ _b_.__import__=function(){
 var $=$B.args('__import__',5,{name:null,globals:null,locals:null,fromlist:null,level:null},['name','globals','locals','fromlist','level'],arguments,{globals:None,locals:None,fromlist:_b_.tuple.$factory(),level:0},null,null)
 return $B.$__import__($.name,$.globals,$.locals,$.fromlist)}
 _b_.input=function(msg) {
-    console.log(inputval)
-    if( (inputval !== "") && inputval !== "waiting⽏"){
-        console.log("got val")
-        return inputval;
-    }
-    else{
-        window.inputval = ""
-        textconsole.value += msg
-        textconsole.removeAttribute('readonly');
-        inputval = "waiting⽏"
-        console.log("hey barbie")
-    }
+    
 
+    //if (!(inputvals[inputi-1] == "waiting⽏") || (inputvals[inputi-1] == null)){
+
+    if( !(inputvals[inputi] == null) && inputvals[inputi] !== "waiting⽏"){
+        console.log("got val")
+        textconsole.value += msg + inputvals[inputi]+ '\n'
+        console.log(inputvals[inputi])
+        inputi ++
+        return inputvals[inputi-1];
+    }
+    else if (!(inputvals[inputi-1] == "waiting⽏")){
+        textconsole.value += msg
+        inputvals[inputi] = "waiting⽏"
+        textconsole.removeAttribute('readonly');
+        console.log("waiting")
+        console.log(inputvals)
+        console.log(inputi)
+        inputi ++
+        console.log(inputi)
+        return 
+    }
+    inputvals[inputi] = "waiting⽏"
+    inputi ++
 }
+
+
+
 _b_.isinstance=function(obj,cls){check_nb_args_no_kw('isinstance',2,arguments)
 return $B.$isinstance(obj,cls)}
 $B.$isinstance=function(obj,cls){if(obj===null){return cls===$B.imported.javascript.NullType}
@@ -11056,7 +11070,7 @@ $io.flush=function(self){if(self.buf){
 var s=self.buf.join(''),chr0=String.fromCodePoint(0)
 s=s.replace(new RegExp(chr0,'g'),' ')
 
-if (!inputval == "waiting⽏"){console[self.out](s)}
+if (!inputvals == "waiting⽏"){console[self.out](s)}
 
 self.buf=[]}}
 $io.write=function(self,msg){
