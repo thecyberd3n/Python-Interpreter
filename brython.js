@@ -3128,14 +3128,8 @@ _b_.__import__=function(){
 var $=$B.args('__import__',5,{name:null,globals:null,locals:null,fromlist:null,level:null},['name','globals','locals','fromlist','level'],arguments,{globals:None,locals:None,fromlist:_b_.tuple.$factory(),level:0},null,null)
 return $B.$__import__($.name,$.globals,$.locals,$.fromlist)}
 _b_.input=function(msg) {
-    
-
-    //if (!(inputvals[inputi-1] == "waiting⽏") || (inputvals[inputi-1] == null)){
-
     if( !(inputvals[inputi] == null) && inputvals[inputi] !== "waiting⽏"){
-        console.log("got val")
         textconsole.value += msg + inputvals[inputi]+ '\n'
-        console.log(inputvals[inputi])
         inputi ++
         return inputvals[inputi-1];
     }
@@ -3143,11 +3137,7 @@ _b_.input=function(msg) {
         textconsole.value += msg
         inputvals[inputi] = "waiting⽏"
         textconsole.removeAttribute('readonly');
-        console.log("waiting")
-        console.log(inputvals)
-        console.log(inputi)
         inputi ++
-        console.log(inputi)
         return 
     }
     inputvals[inputi] = "waiting⽏"
