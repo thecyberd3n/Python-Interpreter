@@ -12,16 +12,13 @@ codeinput.value = 'print("This is my calculator; Enter 2 numbers to multiply the
 
 
 document.getElementById("run").onclick = function(){
-    console.log("ran")
-    console.log(stop)
-    document.getElementById("run").value = "clicked"
     if (stop){
-        document.getElementById("run").value = "stop"
+        document.getElementById("run").innerHTML = "Stop"
         stop = true
         runcode()
     }
     else{
-        document.getElementById('run').value = "run1"
+        document.getElementById('run').innerHTML = "Run"
         stop = true
         textconsole.value = ""
     }

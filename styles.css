@@ -35,3 +35,16 @@ body{
     height: 70%;
     outline: none;
 }
+
+#run{
+    margin-left: 40%;
+    margin-right: 40%;
+    border-color: hsl(267, 30%, 41%);
+    background-color: hsl(0, 0%, 23%);
+    color: hsl(0, 0%, 100%);
+    width: 10em;
+    height: 4em;
+    border-width: 5px;
+    border-radius: 5px;
+    border-style: solid;
+}

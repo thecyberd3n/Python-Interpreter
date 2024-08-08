@@ -3371,16 +3371,22 @@ var all_ints=()=> _b_.TypeError.$factory('pow() 3rd argument not '+
 _b_.pow=function(){var $=$B.args('pow',3,{x:null,y:null,mod:null},['x','y','mod'],arguments,{mod:None},null,null),x=$.x,y=$.y,z=$.mod
 if(z===_b_.None){return $B.rich_op('__pow__',x,y)}else{if($B.$isinstance(x,_b_.int)){if($B.$isinstance(y,_b_.float)){throw all_ints()}else if($B.$isinstance(y,_b_.complex)){throw complex_modulo()}else if($B.$isinstance(y,_b_.int)){if($B.$isinstance(z,_b_.complex)){throw complex_modulo()}else if(! $B.$isinstance(z,_b_.int)){throw all_ints()}}
 return _b_.int.__pow__(x,y,z)}else if($B.$isinstance(x,_b_.float)){throw all_ints()}else if($B.$isinstance(x,_b_.complex)){throw complex_modulo()}}}
-var $print=_b_.print=function(){var $ns=$B.args('print',0,{},[],arguments,{},'args','kw')
-var kw=$ns['kw'],end=_b_.dict.get(kw,'end','\n'),sep=_b_.dict.get(kw,'sep',' '),file=_b_.dict.get(kw,'file',$B.get_stdout())
-var args=$ns['args'],writer=$B.$getattr(file,'write')
-for(var i=0,len=args.length;i < len;i++){var arg=_b_.str.$factory(args[i])
-writer(arg)
-if(i < len-1){writer(sep)}}
-writer(end)
-var flush=$B.$getattr(file,'flush',None)
-if(flush !==None){$B.$call(flush)()}
-return None}
+var $print=_b_.print=function(){
+
+    var $ns=$B.args('print',0,{},[],arguments,{},'args','kw')
+    console.log($ns)
+    var kw=$ns['kw'],end=_b_.dict.get(kw,'end','\n'),sep=_b_.dict.get(kw,'sep',' '),file=_b_.dict.get(kw,'file',$B.get_stdout())
+    var args=$ns['args'],writer=$B.$getattr(file,'write')
+    for(var i=0,len=args.length;i < len;i++){var arg=_b_.str.$factory(args[i])
+    writer(arg)
+    if(i < len-1){writer(sep)}}
+    writer(end)
+    var flush=$B.$getattr(file,'flush',None)
+    if(flush !==None){$B.$call(flush)()}
+    return None
+
+
+}
 $print.__name__='print'
 $print.is_func=true
 var quit=_b_.quit=function(){throw _b_.SystemExit}
