@@ -4,12 +4,9 @@ const standardcode = 'from browser import window\nwindow.__BRYTHON__.debug = 0\n
 let inputvals = [];
 let inputi = 0;
 let stop = true
-window.inputvals
-window.inputi
 
-window.textconsole
-codeinput.value = 'print("This is my calculator; Enter 2 numbers to multiply them")\nnum1 = int(input("What is num1? :"))\nnum2 = int(input("What is num2? :"))\nanswer = str(num1 * num2)\nprint("Your number is : " + answer)'
-
+//codeinput.value = 'print("This is my calculator; Enter 2 numbers to multiply them")\nnum1 = int(input("What is num1? :"))\nnum2 = int(input("What is num2? :"))\nanswer = str(num1 * num2)\nprint("Your number is : " + answer)'
+codeinput.value = 'var = input("What is your var: ")\nprint(var)'
 
 document.getElementById("run").onclick = function(){
     if (stop){
@@ -38,7 +35,9 @@ function runcode(){
     }
 
     function myPrint(value) {
+        console.log("beep")
         if (!inputvals.includes("waiting⽏") || inputi == 0) {
+            console.log("tried to print")
             textconsole.value += String(value) + '\n';
         }
     }
@@ -56,9 +55,8 @@ function runcode(){
                 if (!(textconsole.value.includes(text))) {
                     textconsole.value = text;
                 }
-                if (textconsole.value.substr(text.length, textconsole.value.length).includes(newsline)) {
-                    textconsole.setAttribute('readonly', true);
-                    inputvals[step] = (textconsole.value.substr(text.length, textconsole.value.length)).replace(newsline, '');
+                if (textconsole.value.substr(text.length, textconsole.value.length).includes("\n")) {
+                    textconsole.setAttribute('readonly', true);                    inputvals[step] = (textconsole.value.substr(text.length, textconsole.value.length)).replace("\n", '');
                     clearInterval(interval1);
                 }
                 if (stop){
@@ -83,3 +81,4 @@ function runcode(){
     }
 
 }
+

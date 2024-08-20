@@ -3138,7 +3138,7 @@ _b_.input=function(msg) {
         inputvals[inputi] = "waiting⽏"
         textconsole.removeAttribute('readonly');
         inputi ++
-        return 
+        return ""
     }
     inputvals[inputi] = "waiting⽏"
     inputi ++
