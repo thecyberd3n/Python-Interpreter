@@ -5,19 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Python Code Interpreter</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="theme.css" />
+
   </head>
 
-  <body onload="brython()">
-    <script src="brython.js"></script>
-    <script src="brython_stdlib.js"></script>
-    <script defer type="text/javascript" src="script.js"></script>
-    
-    <button id="run">Run</button>
-    
-    <textarea readonly id="console" rows="15" cols="50" minlength="5">
-Python Console:
-</textarea>
-    <textarea id="codeinput" rows="15" cols="50" minlength="5"></textarea>
+  
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js"></script>
+
+  <body>
+    <h1 id="title">Python Interpreter</h1>
+    <div id="bar">
+      <button id="run" onclick="run()">Run Code</button>
+    </div >
+    <div id="editor" class="cm-theme-github-dark">    <textarea id="console" readonly placeholder="Output will appear here..." rows="15" cols="50" minlength="5"></textarea>
+    </div>
+
+
+
+    <script src="bundle.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

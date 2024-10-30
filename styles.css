@@ -1,13 +1,57 @@
 body{
     background-color: hsl(0, 0%, 7%);
 }
+@font-face {
+    font-family: "Dosis";
+    src: url("Dosis-Bold.ttf");
+}
+/* If you want to target a specific editor container */
 
+#editor {
+    border: 2px solid #1b1f23; /* Border color and width */
+    border-radius: 4px; /* Optional: Rounded corners */
+}
+/* Autocomplete Menu Styles */
+.cm-tooltip {
+    border: 1px solid #1b1f23; /* Border color */
+    background-color: #24292e; /* Background color of the menu */
+    color: #d1d5da; /* Text color */
+    border-radius: 10px; /* Optional: Rounded corners */
+    z-index: 1000; /* Ensure the menu appears on top */
+}
+
+/* Styles for the items in the autocomplete menu */
+.cm-tooltip > ul {
+    border: 1px solid #1b1f23; /* Border color */
+    border-radius: 10px; /* Optional: Rounded corners */
+    font-family: Dosis;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+    list-style-type: none; /* Remove bullet points */
+}
+
+/* Individual menu items */
+.cm-tooltip > ul > li {
+    
+    padding: 5px 10px; /* Padding for each item */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Hover effect for menu items */
+.cm-tooltip > ul > li:hover {
+    background-color: #3392FF44; /* Change background on hover */
+    color: #ffffff; /* Change text color on hover */
+}
+
+/* Selected item in the autocomplete menu */
+.cm-tooltip > ul > li[aria-selected] {
+    background-color: #3392FF; /* Background color for the selected item */
+    color: #ffffff; /* Text color for the selected item */
+}
 
 #console {
+    font-family: "Dosis";
     font-size: 15px;
-    margin-top: 25px;
-    margin-right: 25px;
-    margin-left: 0px;
     float: right;
     resize: none;
     border-color: hsl(267, 30%, 41%);
@@ -19,26 +63,15 @@ body{
     height: 70%;
     outline: none;
 }
-#codeinput {
-    font-size: 15px;
-    margin-top: 25px;
-    margin-left: 25px;
-    margin-right: 0px;
-    float: left;
-    resize: none;
-    border-color: hsl(267, 30%, 41%);
-    border-radius: 10px;
-    border-width: 5px;
-    background-color: hsl(0, 0%, 23%);
-    color: hsl(0, 0%, 100%);
-    width: 50%;
-    height: 70%;
-    outline: none;
+#code {
+    height: 300px;
 }
-
+#bar{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
 #run{
-    margin-left: 40%;
-    margin-right: 40%;
     border-color: hsl(267, 30%, 41%);
     background-color: hsl(0, 0%, 23%);
     color: hsl(0, 0%, 100%);
@@ -47,4 +80,11 @@ body{
     border-width: 5px;
     border-radius: 5px;
     border-style: solid;
+    margin: 0;
+
+}
+#title{
+    text-align: center;
+    color: hsl(267, 30%, 41%);
+    font-family: Dosis;
 }
