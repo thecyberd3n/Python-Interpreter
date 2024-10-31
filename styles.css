@@ -1,18 +1,64 @@
 body{
     background-color: hsl(0, 0%, 7%);
+
 }
 @font-face {
     font-family: "Dosis";
-    src: url("Dosis-Bold.ttf");
+    src: url("Dosis.ttf");
 }
 /* If you want to target a specific editor container */
-
+.cm-editor .cm-content { font-family: "Dosis" }
+.cm-editor .cm-gutters { font-family: "Dosis" }
 #editor {
-    border: 2px solid #1b1f23; /* Border color and width */
-    border-radius: 4px; /* Optional: Rounded corners */
+    
+    border-color: hsl(267, 30%, 41%);
+    border-radius: 10px;
+    border-width: 5px;
+    width: 50%;
+    overflow: auto;
+
+    
+}
+#editor::-webkit-scrollbar{
+    width: 100000000000px;
+}
+#editor::-webkit-scrollbar-thumb {
+    background: hsl(267, 30%, 41%);           /* Color of the scrollbar */
+    border-radius: 10px;        /* Rounded scrollbar thumb */
+  }
+#console {
+    overflow: scroll;
+    display:flex;
+    overflow-x: hidden;
+    font-family: Dosis;
+    font-size: 20px;
+    width: 50%;   
+    height: 100;      
+    padding: 10px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    resize: none;      /* Optional: Disable resizing */
+    outline: none;
+    border-color: hsl(267, 30%, 41%);
+    border-radius: 10px;
+    border-width: 5px;
+    background-color: #2c2f33;
+}
+#window{
+    box-sizing: border-box;
+    display:flex;
+    background-color: white;
+    margin: auto;
+    height: 100;
+    width: 50%;
+    border-radius: 11px;
+    position: relative;
+    background-color: #24292e;
 }
 /* Autocomplete Menu Styles */
 .cm-tooltip {
+    outline: none;
+    overflow-y: hidden; background-image: none;
+    height: 50px;
     border: 1px solid #1b1f23; /* Border color */
     background-color: #24292e; /* Background color of the menu */
     color: #d1d5da; /* Text color */
@@ -22,6 +68,7 @@ body{
 
 /* Styles for the items in the autocomplete menu */
 .cm-tooltip > ul {
+    overflow-y: hidden; background-image: none;
     border: 1px solid #1b1f23; /* Border color */
     border-radius: 10px; /* Optional: Rounded corners */
     font-family: Dosis;
@@ -32,7 +79,8 @@ body{
 
 /* Individual menu items */
 .cm-tooltip > ul > li {
-    
+    overflow-y: hidden; background-image: none;
+    font-family: Dosis;
     padding: 5px 10px; /* Padding for each item */
     cursor: pointer; /* Pointer cursor on hover */
 }
@@ -49,24 +97,10 @@ body{
     color: #ffffff; /* Text color for the selected item */
 }
 
-#console {
-    font-family: "Dosis";
-    font-size: 15px;
-    float: right;
-    resize: none;
-    border-color: hsl(267, 30%, 41%);
-    border-radius: 10px;
-    border-width: 5px;
-    background-color: hsl(0, 0%, 23%);
-    color: hsl(0, 0%, 100%);
-    width: 40%;
-    height: 70%;
-    outline: none;
-}
-#code {
-    height: 300px;
-}
+
+
 #bar{
+    margin: 20px;
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -87,4 +121,24 @@ body{
     text-align: center;
     color: hsl(267, 30%, 41%);
     font-family: Dosis;
+}
+/* Custom scrollbar styles for WebKit browsers */
+.scrollable::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+    background: transparent; /* Background for the scrollbar track */
+}
+
+.scrollable::-webkit-scrollbar-thumb {
+    background: hsl(267, 30%, 41%); /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Curved edges for the scrollbar thumb */
+    transition: background 0.3s; /* Smooth transition on hover */
+}
+
+.scrollable::-webkit-scrollbar-thumb:hover {
+    background: hsl(267, 50%, 41%); /* Darker color on hover */
+}
+
+.scrollable::-webkit-scrollbar-track {
+    background: transparent; /* Color of the scrollbar track */
+    border-radius: 10px; /* Curved edges for the scrollbar track */
 }

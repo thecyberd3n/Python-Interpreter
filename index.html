@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Python Code Interpreter</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="theme.css" />
 
   </head>
 
@@ -17,10 +16,10 @@
     <div id="bar">
       <button id="run" onclick="run()">Run Code</button>
     </div >
-    <div id="editor" class="cm-theme-github-dark">    <textarea id="console" readonly placeholder="Output will appear here..." rows="15" cols="50" minlength="5"></textarea>
+    <div id="window">
+      <div id="editor" class="cm-theme-github-dark"></div>
+      <textarea id="console" class="scrollable" placeholder="Output will appear here..." readonly resizeable="false" >Hello</textarea>
     </div>
-
-
 
     <script src="bundle.js"></script>
     <script src="script.js"></script>
